@@ -12,6 +12,8 @@
       <a mat-list-item
          routerLink="/contacts">Contacts</a>
       <ng-template [cdkPortalOutlet]="portal$ | async"> </ng-template>
+      <ng-template [cdkPortalOutlet]="portal2$ | async"> </ng-template>
+
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -24,6 +26,9 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Application Title</span>
+      <span style="padding-left: 20px;">
+        <ng-template [cdkPortalOutlet]="portal2$ | async"> </ng-template>
+      </span>
 
       <div fxFlex
            fxFill></div>

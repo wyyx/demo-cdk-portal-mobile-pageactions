@@ -15,6 +15,7 @@ import { ShellComponent } from './shell/shell.component'
 import { RouterModule } from '@angular/router'
 import { PortalModule } from '@angular/cdk/portal'
 import { PortalGetterDirective } from './portal-getter.directive'
+import { HelloWorldComponent } from './hello-world/hello-world.component'
 
 const exportedModules = [
   LayoutModule,
@@ -31,7 +32,8 @@ const exportedModules = [
 
 @NgModule({
   imports: [CommonModule, ...exportedModules],
-  declarations: [ShellComponent, PortalGetterDirective],
+  entryComponents: [HelloWorldComponent],
+  declarations: [ShellComponent, PortalGetterDirective, HelloWorldComponent],
   exports: [ShellComponent, ...exportedModules, PortalGetterDirective]
 })
 export class SharedModule {}

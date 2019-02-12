@@ -1,4 +1,7 @@
-import { Component, OnInit, TemplateRef } from '@angular/core'
+import { Component, OnInit, TemplateRef, ViewContainerRef } from '@angular/core'
+import { PortalService } from '../shared/portal.service'
+import { ComponentPortal } from '@angular/cdk/portal'
+import { HelloWorldComponent } from '../shared/hello-world/hello-world.component'
 
 @Component({
   selector: 'app-contact-list',
@@ -33,7 +36,7 @@ export class ContactListComponent implements OnInit {
 
   actionsTemplate: TemplateRef<any>
 
-  constructor() {}
+  constructor(private portalService: PortalService) {}
 
   ngOnInit() {
     for (let i = 0; i < 5; i++) {
@@ -41,6 +44,9 @@ export class ContactListComponent implements OnInit {
         name: `Contact ${i}`
       })
     }
+
+    console.log('add helloWorld portal')
+    this.portalService.addPortal('helloWorld', new ComponentPortal(HelloWorldComponent))
   }
 
   onSave() {

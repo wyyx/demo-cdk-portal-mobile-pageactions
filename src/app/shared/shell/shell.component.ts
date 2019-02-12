@@ -12,6 +12,7 @@ import { Portal } from '@angular/cdk/portal'
 })
 export class ShellComponent implements OnInit {
   portal$: Observable<Portal<any>>
+  portal2$: Observable<Portal<any>>
   isHandset$: Observable<boolean> = this.breakpointObserver
     .observe(Breakpoints.Handset)
     .pipe(map(result => result.matches))
@@ -23,5 +24,6 @@ export class ShellComponent implements OnInit {
 
   ngOnInit(): void {
     this.portal$ = this.portalService.getPortal('actionPage')
+    this.portal2$ = this.portalService.getPortal('helloWorld')
   }
 }
