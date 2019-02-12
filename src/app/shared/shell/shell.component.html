@@ -11,7 +11,7 @@
          routerLink="/home">Home</a>
       <a mat-list-item
          routerLink="/contacts">Contacts</a>
-      <div id="page-actions-container-2">2th portal host</div>
+      <ng-template [cdkPortalOutlet]="portal$ | async"> </ng-template>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -20,7 +20,7 @@
               aria-label="Toggle sidenav"
               mat-icon-button
               (click)="drawer.toggle()"
-              *ngIf="isHandset$ | async">
+              *ngIf="(isHandset$ | async)">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Application Title</span>
@@ -29,7 +29,7 @@
            fxFill></div>
       <div fxFlex="50px"
            id="page-actions-container">
-        <!-- content will be placed dynamically via Cdk Portal -->
+        <ng-template [cdkPortalOutlet]="portal$ | async"> </ng-template>
       </div>
     </mat-toolbar>
 

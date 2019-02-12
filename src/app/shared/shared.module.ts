@@ -12,10 +12,9 @@ import {
 } from '@angular/material'
 
 import { ShellComponent } from './shell/shell.component'
-import { PageActionsComponent } from './page-actions/page-actions.component'
 import { RouterModule } from '@angular/router'
 import { PortalModule } from '@angular/cdk/portal'
-import { TemplateGetterDirective } from './template-getter.directive'
+import { PortalGetterDirective } from './portal-getter.directive'
 
 const exportedModules = [
   LayoutModule,
@@ -32,7 +31,7 @@ const exportedModules = [
 
 @NgModule({
   imports: [CommonModule, ...exportedModules],
-  declarations: [ShellComponent, PageActionsComponent, TemplateGetterDirective],
-  exports: [ShellComponent, PageActionsComponent, ...exportedModules, TemplateGetterDirective]
+  declarations: [ShellComponent, PortalGetterDirective],
+  exports: [ShellComponent, ...exportedModules, PortalGetterDirective]
 })
 export class SharedModule {}

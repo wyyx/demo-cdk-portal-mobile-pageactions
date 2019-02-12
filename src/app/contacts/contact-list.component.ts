@@ -8,17 +8,16 @@ import { Component, OnInit, TemplateRef } from '@angular/core'
     <mat-card *ngFor="let contact of contacts">
       {{ contact.name }}
     </mat-card>
-    <app-page-actions>
-      <button
-        *appTemplateGetter
-        type="button"
-        class="toolbar-btn"
-        mat-icon-button
-        (click)="onSave()"
-      >
-        <mat-icon>add</mat-icon>
-      </button>
-    </app-page-actions>
+
+    <button
+      *appPortalGetter="'pageActionPortal'; context: context"
+      type="button"
+      class="toolbar-btn"
+      mat-icon-button
+      (click)="onSave()"
+    >
+      <mat-icon>add</mat-icon>
+    </button>
   `,
   styles: [
     `
@@ -30,6 +29,7 @@ import { Component, OnInit, TemplateRef } from '@angular/core'
 })
 export class ContactListComponent implements OnInit {
   contacts = []
+  context = { name: 'Houdini', age: 37 }
 
   actionsTemplate: TemplateRef<any>
 
